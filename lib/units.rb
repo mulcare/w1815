@@ -23,25 +23,25 @@ class Unit
     # has its own results table for most cards.
     $crt[name][0].fetch(roll,$crt[name][0].max).each do |action|
       # Handle morale loss results.
-      if action[-1] == "M"
-        if action[-2] == "F"
+      if action[-1] == 'M'
+        if action[-2] == 'F'
           FRENCH.morale_loss(action[-3].to_i)
         else
           ALLIED.morale_loss(action[-3].to_i)
         end
       # Handle casualty results.
-      elsif action[-1] == "C"
-        if action[-2] == "F"
-          if @nationality == "fr"
+      elsif action[-1] == 'C'
+        if action[-2] == 'F'
+          if @nationality == 'fr'
             casualty(action[0].to_i)
           else
-            puts "casualty on enemy"
+            puts 'casualty on enemy'
           end
         else 
-          if @nationality == "ac"
-            puts "casualty on self"
+          if @nationality == 'ac'
+            puts 'casualty on self'
           else
-            puts "Casualty on enemy"
+            puts 'Casualty on enemy'
           end
         end
       end
@@ -99,11 +99,11 @@ end
 class Leader
     attr_accessor :status
     def initialize
-      @status = "unused"
+      @status = 'unused'
     end
   
     def flip
-      @status = "used"
+      @status = 'used'
     end
 end
 

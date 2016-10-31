@@ -6,7 +6,7 @@ class Player
     @nationality = nationality
     @morale = 10
 
-    if @nationality == "fr"
+    if @nationality == 'fr'
       @casualties = 12
     else
       @casualties = 10
