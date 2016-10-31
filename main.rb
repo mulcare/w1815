@@ -61,31 +61,30 @@ $units = {
           }
 
 $crt = {
-        "Reille" => [["1FM", "1AC"],["1AC", "2FM"]],
+        "Reille" => [%w(1FM 1AC),%w(1AC 2FM)],
         "d'Erlon" =>[ [#faceup CRT
-                        ["1FC", "1FM"],
-                        ["1AM", "1FC"],
-                        ["1AC", "1FC"],
-                        ["1AC", "1FM"],
-                        ["2AC", "1FC"],
-                        ["2AC", "1AM"],
-                        ["La Haye Sainte captured"]
+                        %w(1FC 1FM),
+                        %w(1AM 1FC),
+                        %w(1AC 1FC),
+                        %w(1AC 1FM),
+                        %w(2AC 1FC),
+                        %w(2AC 1AM),
+                        ['La Haye Sainte captured']
                       ],
                       [#facedown CRT
-                        ["1FC", "1FM"],
-                        ["1AM", "1FC"],
-                        ["1AC", "1FC"],
-                        ["1AC", "1FM"],
-                        ["2AC", "1FC"],
-                        ["2AC", "1AM"],
-                        ["La Haye Sainte captured"]
+                        %w(1FC 1FM),
+                        %w(1AM 1FC),
+                        %w(1AC 1FC),
+                        %w(1AC 1FM),
+                        %w(2AC 1FC),
+                        %w(2AC 1AM),
+                        ['La Haye Sainte captured']
                       ]  
                     ]  
       }
 
 class StatsTracker
-  attr_accessor :phasing_player
-  attr_accessor :last_unit_activated
+  attr_accessor :phasing_player, :last_unit_activated
   def initialize
     @phasing_player = FRENCH
     @last_unit_activated = nil
