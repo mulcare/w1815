@@ -14,7 +14,7 @@ class Game
     puts "The #{nationalities[nationality]} forces have been completely broken and fled the battlefied. Game over.".colorize(:blue)
     puts "Play again? (Y/n)".colorize(:red)
     response = gets.chomp
-    if response == "" || response[0].downcase == "y"
+    if response.empty? || response[0].downcase == "y"
       #create new game, reset everything, etc.
       puts "works"
     else
