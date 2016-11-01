@@ -25,9 +25,9 @@ class Unit
       # Handle morale loss results.
       if action[-1] == 'M'
         if action[-2] == 'F'
-          FRENCH.morale_loss(action[-3].to_i)
+          Game::FRENCH.morale_loss(action[-3].to_i)
         else
-          ALLIED.morale_loss(action[-3].to_i)
+          Game::ALLIED.morale_loss(action[-3].to_i)
         end
       # Handle casualty results.
       elsif action[-1] == 'C'
@@ -58,7 +58,7 @@ class Unit
         if @shattered == true
           puts "#{@name} is shattered and cannot take more casualties.".colorize(:light_red)
         else
-          PLAYERS[@nationality][0].morale_loss(1)
+          Game::PLAYERS[@nationality][0].morale_loss(1)
           @shattered = true
           puts "#{@name} has shattered. Unit can no longer attack and any losses will apply to other units. Army takes a morale loss.".colorize(:light_red)
         end

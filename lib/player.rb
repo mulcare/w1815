@@ -16,7 +16,7 @@ class Player
   # Morale counts down from 10 to 0. When it reaches 0, that player loses.
   def morale_loss(x)
     @morale = @morale - x
-    puts "#{PLAYERS[@nationality][1]} morale loss of #{x}. Current morale: #{@morale}".colorize(:red)
+    puts "#{Game::PLAYERS[@nationality][1]} morale loss of #{x}. Current morale: #{@morale}".colorize(:red)
     if @morale == 0
       Game.lose(@nationality)
     end
@@ -37,7 +37,7 @@ class Player
     mods = mods + TIMETRACK.dr_mod
     roll = Die.new.roll + mods
 
-    puts "#{PLAYERS[@nationality][1]} rout test. Need to roll a #{@morale} (current morale) or below. Rolling...".colorize(:red)
+    puts "#{Game::PLAYERS[@nationality][1]} rout test. Need to roll a #{@morale} (current morale) or below. Rolling...".colorize(:red)
     puts "Player rolls a #{roll}.".colorize(:red)
     if roll  > @morale
       Game.lose(@nationality)

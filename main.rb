@@ -8,7 +8,7 @@ require_relative 'lib/die'
 require 'colorize'
 
 class Game
-  def lose(nationality)
+  def self.lose(nationality)
     nationalities = { "fr" => "French", "aa" => "Anglo-Allied"}
 
     puts "The #{nationalities[nationality]} forces have been completely broken and fled the battlefied. Game over.".colorize(:blue)
@@ -21,8 +21,6 @@ class Game
       exit(true)
     end
   end
-end
-
 
 ALLIED = Player.new("aa")
 FRENCH = Player.new("fr")
@@ -83,6 +81,11 @@ $crt = {
                     ]  
       }
 
+end
+
+
+
+
 class StatsTracker
   attr_accessor :phasing_player, :last_unit_activated
   def initialize
@@ -91,6 +94,7 @@ class StatsTracker
   end
 end
 
+Game.new
 
 while true
   puts "Activate a card:"
