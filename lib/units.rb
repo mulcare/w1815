@@ -18,6 +18,7 @@ class Unit
   # attacking unit's combat result table. Generally, results are either
   # morale losses or casualties on either the unit attack or its target.
   def activate
+    Game::STATSTRACKER.last_unit_activated = self
     roll = Die.new.roll
     # Second selector is faceup (0) or facedown (1) status, each of which
     # has its own results table for most cards.

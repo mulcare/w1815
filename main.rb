@@ -89,7 +89,7 @@ end
 Game.new
 
 while true
-  puts 'Activate a card:''
+  puts 'Activate a card:'
   card = gets.chomp.downcase.delete("'")
   $units[card].activate
 end
