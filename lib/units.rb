@@ -17,7 +17,7 @@ class Unit
   # Roll a die, add any applicable modifiers, and find the result on the
   # attacking unit's combat result table. Generally, results are either
   # morale losses or casualties on either the unit attack or its target.
-  def attack
+  def activate
     roll = Die.new.roll
     # Second selector is faceup (0) or facedown (1) status, each of which
     # has its own results table for most cards.
@@ -37,7 +37,7 @@ class Unit
           else
             puts 'casualty on enemy'
           end
-        else 
+        else
           if @nationality == 'ac'
             puts 'casualty on self'
           else
@@ -101,7 +101,7 @@ class Leader
     def initialize
       @status = 'unused'
     end
-  
+
     def flip
       @status = 'used'
     end

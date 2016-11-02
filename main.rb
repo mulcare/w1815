@@ -91,5 +91,5 @@ Game.new
 while true
   puts 'Activate a card:''
   card = gets.chomp.downcase.delete("'")
-  $units[card].attack
+  $units[card].activate
 end
