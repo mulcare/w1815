@@ -1,7 +1,12 @@
 class CRT
+  attr_accessor :charts
   @charts = {
-          :reille => [[%w(1FM 1AC),%w(1AC 2FM)]],
-          :derlon =>[ [#faceup CRT
+          :reille => [[
+                          %w(1FM 1AC),
+                          %w(1AC 2FM)
+                          ]
+                      ],
+          :derlon => [[#faceup CRT
                           %w(1FC 1FM),
                           %w(1AM 1FC),
                           %w(1AC 1FC),
@@ -23,13 +28,9 @@ class CRT
         }
 
   def self.result(unit, roll)
-    if Game::UNITS[unit].faceup?
-      face = 0
-    else
-      face = 1
-    end
+    roll = roll - 1
+    face = Game::UNITS[unit] ? 0 : 1
     result = @charts[unit][face]
-    actions = result.fetch(roll, result.max)
-    return actions
+    result.fetch(roll, result.last)
   end
 end
