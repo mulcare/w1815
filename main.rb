@@ -11,58 +11,58 @@ require 'colorize'
 
 class Game
   def self.lose(nationality)
-    nationalities = { "fr" => "French", "aa" => "Anglo-Allied"}
+    nationalities = { 'fr' => 'French', 'aa' => 'Anglo-Allied'}
 
     puts "The #{nationalities[nationality]} forces have been completely broken and fled the battlefied. Game over.".colorize(:blue)
-    puts "Play again? (Y/n)".colorize(:red)
+    puts 'Play again? (Y/n)'.colorize(:red)
     response = gets.chomp
-    if response.empty? || response[0].downcase == "y"
+    if response.empty? || response[0].downcase == 'y'
       #create new game, reset everything, etc.
-      puts "works"
+      puts 'works'
     else
       exit(true)
     end
   end
 
-  ALLIED = Player.new("aa")
-  FRENCH = Player.new("fr")
-  PLAYERS = { "fr" => [FRENCH, "French"], "aa" => [ALLIED, "Anglo-Allied"]}
-  
-  
+  ALLIED = Player.new('aa')
+  FRENCH = Player.new('fr')
+  PLAYERS = { 'fr' => [FRENCH, 'French'], 'aa' => [ALLIED, 'Anglo-Allied']}
+
+
   TIMETRACK = TimeTrack.new
   STATSTRACKER = StatsTracker.new
   SCOREBOARD = Scoreboard.new
-  
+
   # Anglo-Allied Units
-  ORANGE = Infantry.new("aa", "Orange", 3, 3)
-  HILL = Infantry.new("aa", "Hill", 5, 5)
-  UXBRIDGE = Cavalry.new("aa", "Uxbridge", 3, 3)
+  ORANGE = Infantry.new('aa', 'Orange', 3, 3)
+  HILL = Infantry.new('aa', 'Hill', 5, 5)
+  UXBRIDGE = Cavalry.new('aa', 'Uxbridge', 3, 3)
   #RESERVE
-  
-  BLUCHER = Infantry.new("aa", "Hill", 5, 5)
-  
+
+  BLUCHER = Infantry.new('aa', 'Hill', 5, 5)
+
   # French Units
-  DERLON = Infantry.new("fr", "d'Erlon", 4, 4)
-  REILLE = Infantry.new("fr", "Reille", 4, 4)
+  DERLON = Infantry.new('fr', "d'Erlon", 4, 4)
+  REILLE = Infantry.new('fr', 'Reille', 4, 4)
   #LOBAU
   #GUARD
   #BATTERY
-  MILHAUD = Cavalry.new("fr", "Milahud", 2, 2)
-  KELLERMAN = Cavalry.new("fr", "Kellerman", 2, 2)
-  
+  MILHAUD = Cavalry.new('fr', 'Milahud', 2, 2)
+  KELLERMAN = Cavalry.new('fr', 'Kellerman', 2, 2)
+
   # Leaders
   NAPOLEON = Napoleon.new
   WELLINGTON = Wellington.new
-  
+
   $units = {
-              "orange" => ORANGE,
-              "hill" => HILL,
-              "derlon" => DERLON,
-              "reille" => REILLE
+              'orange' => ORANGE,
+              'hill' => HILL,
+              'derlon' => DERLON,
+              'reille' => REILLE
             }
-  
+
   $crt = {
-          "Reille" => [%w(1FM 1AC),%w(1AC 2FM)],
+          'Reille' => [%w(1FM 1AC),%w(1AC 2FM)],
           "d'Erlon" =>[ [#faceup CRT
                           %w(1FC 1FM),
                           %w(1AM 1FC),
@@ -80,16 +80,16 @@ class Game
                           %w(2AC 1FC),
                           %w(2AC 1AM),
                           ['La Haye Sainte captured']
-                        ]  
-                      ]  
+                        ]
+                      ]
         }
-  
+
 end
 
 Game.new
 
 while true
-  puts "Activate a card:"
+  puts 'Activate a card:''
   card = gets.chomp.downcase.delete("'")
   $units[card].attack
 end
