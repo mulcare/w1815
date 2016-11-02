@@ -7,6 +7,7 @@ class Unit
   def initialize(nationality, name, strength, capacity)
       @nationality = nationality
       @name = name
+      @name_symbol = name.downcase.delete("'").to_sym
       @strength = strength
       @capacity = capacity
       @square = false
@@ -22,7 +23,8 @@ class Unit
     roll = Die.new.roll
     # Second selector is faceup (0) or facedown (1) status, each of which
     # has its own results table for most cards.
-    $crt[name][0].fetch(roll,$crt[name][0].max).each do |action|
+    #$crt[name][0].fetch(roll,$crt[name][0].max).each do |action|
+    CRT.result(@name_symbol, roll).each do |action|
       # Handle morale loss results.
       if action[-1] == 'M'
         if action[-2] == 'F'
@@ -68,7 +70,7 @@ class Unit
       casualties = casualties - @strength
       casualty(@strength)
       puts "#{casualties} casualties need to be applied to another unit. Please select a unit. Available units:".colorize(:light_red)
-      $units.each do |key, unit|
+      Game::UNITS.each do |key, unit|
         # Only display units that have strength available to lose.
         if unit.strength > 0
           if unit.nationality == @nationality
@@ -76,8 +78,8 @@ class Unit
           end
         end
       end
-    target = gets.chomp.downcase.delete("'")
-    $units[target].casualty(casualties)
+    target = gets.chomp.downcase.delete("'").to_sym
+    Game::UNITS[target].casualty(casualties)
     end
   end
 

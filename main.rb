@@ -6,6 +6,7 @@ require_relative 'lib/startscreen'
 require_relative 'lib/player'
 require_relative 'lib/die'
 require_relative 'lib/statstracker'
+require_relative 'lib/crt.rb'
 
 require 'colorize'
 
@@ -47,49 +48,25 @@ class Game
   #LOBAU
   #GUARD
   #BATTERY
-  MILHAUD = Cavalry.new('fr', 'Milahud', 2, 2)
+  MILHAUD = Cavalry.new('fr', 'Milhaud', 2, 2)
   KELLERMAN = Cavalry.new('fr', 'Kellerman', 2, 2)
 
   # Leaders
   NAPOLEON = Napoleon.new
   WELLINGTON = Wellington.new
 
-  $units = {
-              'orange' => ORANGE,
-              'hill' => HILL,
-              'derlon' => DERLON,
-              'reille' => REILLE
+  UNITS = {
+              :orange => ORANGE,
+              :hill => HILL,
+              :derlon => DERLON,
+              :reille => REILLE
             }
-
-  $crt = {
-          'Reille' => [%w(1FM 1AC),%w(1AC 2FM)],
-          "d'Erlon" =>[ [#faceup CRT
-                          %w(1FC 1FM),
-                          %w(1AM 1FC),
-                          %w(1AC 1FC),
-                          %w(1AC 1FM),
-                          %w(2AC 1FC),
-                          %w(2AC 1AM),
-                          ['La Haye Sainte captured']
-                        ],
-                        [#facedown CRT
-                          %w(1FC 1FM),
-                          %w(1AM 1FC),
-                          %w(1AC 1FC),
-                          %w(1AC 1FM),
-                          %w(2AC 1FC),
-                          %w(2AC 1AM),
-                          ['La Haye Sainte captured']
-                        ]
-                      ]
-        }
-
 end
 
 Game.new
 
 while true
   puts 'Activate a card:'
-  card = gets.chomp.downcase.delete("'")
-  $units[card].activate
+  card = gets.chomp.downcase.delete("'").to_sym
+  Game::UNITS[card].activate
 end

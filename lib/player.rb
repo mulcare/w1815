@@ -17,7 +17,7 @@ class Player
   def morale_loss(x)
     @morale = @morale - x
     puts "#{Game::PLAYERS[@nationality][1]} morale loss of #{x}. Current morale: #{@morale}".colorize(:red)
-    if @morale == 0
+    if @morale <= 0
       Game.lose(@nationality)
     end
   end
@@ -27,9 +27,9 @@ class Player
   # than their current morale on a d6, they immediately lose the game.
   def rout_test
     # Two possible external mods to the rout test: 1) Blucher has brought
-    # in at least 5 Pressuian units at some point during the game; 2) The
+    # in at least 5 Prussian units at some point during the game; 2) The
     # Time Track marker has advanced forward (+1 for Afternoon, +2 for
-    # Evening)
+    # Evening
     mods = 0
     if BLUCHER.max_pd >= 5
       mods = 1
