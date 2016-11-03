@@ -20,10 +20,9 @@ class Unit
   # morale losses or casualties on either the unit attack or its target.
   def activate
     Game::STATSTRACKER.last_unit_activated = self
+
     roll = Die.new.roll
-    # Second selector is faceup (0) or facedown (1) status, each of which
-    # has its own results table for most cards.
-    #$crt[name][0].fetch(roll,$crt[name][0].max).each do |action|
+
     CRT.result(@name_symbol, roll).each do |action|
       # Handle morale loss results.
       if action[-1] == 'M'
@@ -58,7 +57,7 @@ class Unit
       @strength = @strength - casualties
       puts "#{@name} suffers casualties. Current strength is #{@strength}/#{@capacity}.".colorize(:light_red)
       if @strength == 0
-        if @shattered == true
+        if @shattered
           puts "#{@name} is shattered and cannot take more casualties.".colorize(:light_red)
         else
           Game::PLAYERS[@nationality][0].morale_loss(1)
