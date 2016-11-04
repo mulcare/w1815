@@ -49,7 +49,7 @@ class Game
   #GUARD
   #BATTERY
   MILHAUD = Cavalry.new('fr', 'Milhaud', 2, 2)
-  KELLERMAN = Cavalry.new('fr', 'Kellerman', 2, 2)
+  KELLERMANN = Cavalry.new('fr', 'Kellerman', 2, 2)
 
   # Leaders
   NAPOLEON = Napoleon.new
