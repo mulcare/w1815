@@ -21,6 +21,12 @@ class Unit
   def activate
     Game::STATSTRACKER.last_unit_activated = self
 
+    if Game::STATSTRACKER.last_unit_activated.nationality == "fr"
+      Game::STATSTRACKER.phasing_player = Game::FRENCH
+    else
+      Game::STATSTRACKER.phasing_player = Game::ALLIED
+    end
+
     roll = Die.new.roll
 
     CRT.result(@name_symbol, roll).each do |action|
