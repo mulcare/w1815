@@ -56,10 +56,10 @@ class Game
   WELLINGTON = Wellington.new
 
   UNITS = {
-              :orange => ORANGE,
-              :hill => HILL,
-              :derlon => DERLON,
-              :reille => REILLE
+              orange: ORANGE,
+              hill: HILL,
+              derlon: DERLON,
+              reille: REILLE
             }
 end
 

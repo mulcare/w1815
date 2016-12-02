@@ -1,8 +1,8 @@
 class CRT
   attr_reader :charts
-  
+
   @charts = {
-          :reille => [[
+          reille: [[
                           %w(1FC),
                           %w(1AC 1FC),
                           %w(1AC 1FC),
@@ -19,7 +19,7 @@ class CRT
                           %w(1AM 2AC)
                         ]
                       ],
-          :derlon => [[#faceup CRT
+          derlon: [[#faceup CRT
                           %w(1FM 1FC),
                           %w(1AM 1FC),
                           %w(1AC 1FC),
@@ -37,7 +37,7 @@ class CRT
                           %w(1AM 2AC)
                         ]
                       ],
-            :orange => [[
+            orange: [[
                           %w(1FM 1AM),
                           %w(1FM 1AC),
                           %w(1FC 1AC),
@@ -49,7 +49,7 @@ class CRT
                           %(Redeploy to line)
                         ]
                       ],
-            :hill => [[
+            hill: [[
                           %w(1FM 1AM),
                           %w(1FM 1AC),
                           %w(1FC 1AC),
