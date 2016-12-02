@@ -6,8 +6,8 @@ def start_screen
     \\           \\    /           \\    / /             |La Belle Alliance
      \\           \\  / /\\          \\  / /              |aka
       \\           \\/ /  \\          \\/ /               |Battle of Waterloo
-       \\            /    \\           /   
-        \\          /      \\         /               
+       \\            /    \\           /
+        \\          /      \\         /
          \\        /        \\       /                  |a game designed by
           \\______/          \\_____/                   |Hannu Uusitalo
   ______     _______   ______   _________.
@@ -17,7 +17,7 @@ def start_screen
    |    |   \\       /   |    |  `----,    \\
    |    |   /   _   \\   |    |       |    |           |ruby implementation by
    |    |  |   | |   |  |    |  __   |    /           |Ross Mulcare in 2016
-  _|    |_ \\   |_|   / _|    |_ \\ \\__/   / 
+  _|    |_ \\   |_|   / _|    |_ \\ \\__/   /
  [________] \\_______/ [________] \\______/
 
 ".colorize(:light_red)

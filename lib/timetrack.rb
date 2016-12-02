@@ -1,6 +1,6 @@
 class TimeTrack
-  attr_reader :status
-  attr_reader :dr_mod
+  attr_reader :status, :dr_mod
+  
   def initialize
     @time = %w(Morning Afternoon Evening)
     @status = @time[0]

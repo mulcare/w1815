@@ -1,7 +1,6 @@
 class Player
-  attr_reader :nationality
-  attr_reader :casualties
-  attr_reader :morale
+  attr_reader :nationality, :casualties, :morale
+  
   def initialize(nationality)
     @nationality = nationality
     @morale = 10
