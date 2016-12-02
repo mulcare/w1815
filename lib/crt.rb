@@ -1,5 +1,5 @@
 class CRT
-  attr_accessor :charts
+  attr_reader :charts
   @charts = {
           :reille => [[
                           %w(1FC),
