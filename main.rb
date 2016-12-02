@@ -38,16 +38,16 @@ class Game
   ORANGE = Infantry.new('aa', 'Orange', 3, 3)
   HILL = Infantry.new('aa', 'Hill', 5, 5)
   UXBRIDGE = Cavalry.new('aa', 'Uxbridge', 3, 3)
-  #RESERVE
-
   BLUCHER = Infantry.new('aa', 'Hill', 5, 5)
+  #RESERVE = Reserve.new
+
 
   # French Units
   DERLON = Infantry.new('fr', "d'Erlon", 4, 4)
   REILLE = Infantry.new('fr', 'Reille', 4, 4)
-  #LOBAU
-  #GUARD
-  #BATTERY
+  #LOBAU = Infantry.new('fr', 'Lobau', 3, 3)
+  #GUARD = Infantry.new('fr', 'Guard', 4, 4)
+  #BATTERY = Infantry.new('fr', 'Grand Battery', 3, 3)
   MILHAUD = Cavalry.new('fr', 'Milhaud', 2, 2)
   KELLERMANN = Cavalry.new('fr', 'Kellerman', 2, 2)
 
