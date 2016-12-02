@@ -1,8 +1,6 @@
 class Unit
   attr_accessor :strength
-  attr_reader :capacity
-  attr_reader :name
-  attr_reader :nationality
+  attr_reader :capacity, :name, :nationality
 
   def initialize(nationality, name, strength, capacity)
       @nationality = nationality
